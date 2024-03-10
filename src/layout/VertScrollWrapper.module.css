@@ -1,0 +1,15 @@
+.vert_scroll_wrapper {
+    --img-sequence-height: 400vh;
+
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    /* height: 500vh; */
+    height: calc(var(--img-sequence-height) + 100vh);
+
+    background-color: var(--primary-dark-clr-700);
+    z-index: var(--z-index-100);
+}

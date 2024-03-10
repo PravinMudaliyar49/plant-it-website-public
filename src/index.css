@@ -1,0 +1,335 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&family=Raleway:wght@200;300;400;500;600;700;800;900&display=swap');
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 100%;
+}
+
+:root {
+    --ff-primary: 'Poppins', sans-serif;
+    --ff-secondary: 'Raleway', sans-serif;
+
+    --max-width: min(100%, 1440px);
+
+    --z-index-0: -1;
+    --z-index-100: 1;
+    --z-index-110: 2;
+    --z-index-120: 3;
+    --z-index-130: 4;
+    --z-index-200: 25;
+    --z-index-300: 50;
+    --z-index-400: 75;
+    --z-index-500: 100;
+    --z-index-600: 125;
+    --z-index-700: 150;
+    /* Avoid: */
+    --z-index-800: 500;
+    --z-index-900: 1000;
+
+    --primary-dark-clr-500: rgb(0, 72, 65);
+    --primary-dark-clr-700: rgb(1, 31, 28);
+    --primary-dark-clr-800: rgb(12, 12, 12);
+
+    --primary-bright-clr-100: greenyellow;
+    --primary-bright-clr-200: rgb(56 247 75);
+    --primary-bright-clr-300: rgb(45 189 60);
+    --primary-bright-clr-500: rgb(0, 172, 108);
+
+    /* Extra repetitive stylings: */
+    --transition-1: 400ms ease-in-out;
+}
+
+/* 
+root
+    - header: 500
+    - div (clip-path)
+        - vision_section: 0
+        - main: 110
+            - vert_scroller: 100
+                - hero_img_cont: 100
+                - hero_section: 130
+                    - hero_section_cont
+                - hero_particles_cont: 110
+                - hero_img_sequence_cont: 120
+                - known_for_section: 200
+                    - known_for_section _cont
+            - prev_works: 100
+            - testimonials: 100
+        - footer: 100
+            - section_cont
+                - blank_section
+                - footer_layout_wrapper
+                    - grass
+                    - footer_content
+
+*/
+
+body {
+    font-family: var(--ff-secondary);
+
+    background-color: var(--primary-dark-clr-700);
+    color: white;
+
+    overflow-x: hidden;
+}
+
+body.stop_page_scroll {
+    overflow: hidden;
+    height: 100vh;
+}
+
+body.prevent_lenis {
+    overscroll-behavior: contain;
+}
+
+/* Resets start */
+
+img,
+picture,
+svg {
+    max-width: 100%;
+    display: block;
+    object-fit: cover;
+
+    user-select: none;
+    pointer-events: none;
+}
+
+svg {
+    pointer-events: initial;
+}
+
+video {
+    object-fit: cover;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    user-select: none;
+}
+
+li {
+    list-style: none;
+}
+
+button {
+    border: none;
+    font-family: inherit;
+    font-weight: inherit;
+    background: none;
+    user-select: none;
+    -webkit-user-select: none;
+    color: inherit;
+
+    cursor: pointer;
+}
+
+button:focus {
+    outline: none;
+}
+
+*::selection {
+    background: var(--primary-bright-clr-200);
+
+    color: black;
+    -webkit-text-fill-color: black;
+
+    background-clip: unset;
+    -webkit-background-clip: unset;
+
+    /* text-shadow: none; */
+}
+
+/* Custom scrollbar: */
+::-webkit-scrollbar {
+    width: 7px;
+    border-radius: 3px;
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 3px var(--primary-dark-clr-500);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-bright-clr-300);
+    border-radius: 3px;
+    cursor: grab;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-bright-clr-300);
+}
+
+/* Resets end */
+
+/* General stylings: */
+
+.section {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.section_container {
+    width: var(--max-width);
+}
+
+.section_headings {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+
+    text-align: center;
+}
+
+.section_headings h2 {
+    font-family: var(--ff-primary);
+    font-size: 3rem;
+
+    text-transform: capitalize;
+
+    background-image: linear-gradient(to right, var(--primary-bright-clr-500) 10%, var(--primary-bright-clr-200));
+    background-size: 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+}
+
+.section_headings p {
+    font-size: 1.15rem;
+    line-height: 1;
+}
+
+.grabbable {
+    cursor: move;
+    cursor: grab;
+    cursor: -moz-grab;
+    cursor: -webkit-grab;
+}
+
+.grabbable:active {
+    cursor: grabbing;
+    cursor: -moz-grabbing;
+    cursor: -webkit-grabbing;
+}
+
+/* Typography */
+
+.body_text_200 {
+    font-size: .6rem;
+    line-height: 1.55;
+}
+
+.body_text_300 {
+    font-size: .8rem;
+    line-height: 1.55;
+}
+
+.body_text_400 {
+    font-size: .9rem;
+    line-height: 1.5;
+}
+
+.body_text_500 {
+    /* FOR-FUTURE: Attach this to other body_text classes as well, strategically. */
+    font-weight: 500;
+
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.body_text_600 {
+    font-weight: 500;
+
+    font-size: 1.2rem;
+    line-height: 1.4;
+}
+
+.body_text_800 {
+    font-size: 1.7rem;
+    line-height: 1.4;
+}
+
+.body_text_900 {
+    font-size: 2rem;
+    line-height: 1.4;
+}
+
+/* 
+Not managed by body_text:
+    - section_headings
+    - hero_intro_text.
+    - KnownFor carousel text.
+    - Previous work modal content writing's h3
+    - testimonial_text
+    - Vision section
+    - Footer content CTA container's h2
+    - Blogs page intro heading h2.
+    - Blogs page published_date.
+    - Blogs page blog_title.
+    - Blog content page's ".blog_title_container p"
+*/
+
+/* Link text: */
+
+.link_text {
+    position: relative;
+
+    /* LEARN: For future, this is useful. This makes sure that the icon inside this link doesn't break into a new line alone.. and rather the entire element breaks into a new line: */
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.4em;
+
+    cursor: pointer;
+    transition: color 250ms ease-out;
+}
+
+
+.link_text .link_word {
+    line-height: 1;
+}
+
+.link_text .redirect_arrow {
+    transition: transform 300ms 350ms ease-out;
+}
+
+.link_text .redirect_arrow {
+    width: 8px;
+    color: currentColor;
+}
+
+@media (hover: hover) {
+    .link_text:hover {
+        color: var(--primary-bright-clr-200);
+    }
+
+    .link_text:hover .redirect_arrow {
+        transform: translate(2px, -3px);
+    }
+}
+
+
+/* Page transition: */
+
+.page_root_element {
+    background-color: var(--primary-dark-clr-500);
+}
+
+@media (prefers-reduced-motion: reduce) {}
+
+/* Helpless general stylings: */

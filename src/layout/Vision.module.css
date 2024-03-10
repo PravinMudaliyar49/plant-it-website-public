@@ -1,0 +1,277 @@
+.vision_section {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    padding: 0 2em;
+
+    z-index: var(--z-index-0);
+    user-select: none;
+    pointer-events: none;
+}
+
+.vision_section_container {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.vision_section_img_container {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 130%;
+
+    z-index: -1;
+}
+
+.vision_section_img_container::before {
+    content: '';
+
+    position: absolute;
+    inset: 0;
+
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.vision_section_img_container picture,
+.vision_section_img_container img {
+    width: 100%;
+    height: 100%;
+}
+
+.vision_section_content_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5rem;
+
+    transition: opacity 400ms ease-out;
+}
+
+.vision_section_content_container.hide {
+    opacity: 0;
+}
+
+.vision_text {
+    width: var(--max-width);
+
+    text-align: center;
+
+    font-size: 3.5rem;
+    font-family: var(--ff-primary);
+    font-weight: bolder;
+
+    background-image: linear-gradient(60deg, greenyellow, rgb(20, 201, 183), rgb(147, 227, 27), rgb(45 189 60), rgb(22, 242, 161));
+    background-clip: text;
+    -webkit-background-clip: text;
+    background-size: 400%;
+    -moz-background-clip: text;
+
+    color: rgba(0, 0, 0, 0.4);
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+}
+
+.plants_planted_layout_wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.plants_planted_text {
+    font-family: var(--ff-primary);
+    font-size: 2.3rem;
+    font-weight: 600;
+}
+
+.plants_planted_animation_layout_wrapper {
+    --digit-size: 64px;
+
+    display: flex;
+    gap: 9.6px;
+
+    opacity: 0;
+    transition: opacity 400ms ease-out;
+}
+
+.plants_planted_animation_container {
+    height: var(--digit-size);
+
+    display: flex;
+    justify-content: center;
+
+    overflow: hidden;
+}
+
+.plants_planted_count_slider {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.planted_planted_digit {
+    line-height: 1;
+
+    font-family: var(--ff-primary);
+    font-size: var(--digit-size);
+    font-weight: 500;
+
+    color: var(--primary-bright-clr-200);
+    text-shadow: 0 2px 8px rgba(0, 245, 245, 0.9);
+}
+
+/* Conditional logic: */
+
+.vision_section_content_container.animate_text .vision_text {
+    animation: text_animation 3200ms infinite alternate-reverse;
+}
+
+.vision_section_content_container.animate_text .plants_planted_animation_layout_wrapper {
+    opacity: 1;
+}
+
+.vision_section_content_container.animate_text .plants_planted_count_slider {
+    /* animation: plants_counting_animation .25s ease-in-out forwards 10; */
+    animation: plants_counting_animation 250ms steps(15) forwards 200ms;
+}
+
+.vision_section_content_container.animate_text .plants_planted_count_slider_1 {
+    animation-iteration-count: 3;
+}
+
+.vision_section_content_container.animate_text .plants_planted_count_slider_2 {
+    animation-iteration-count: 6;
+}
+
+.vision_section_content_container.animate_text .plants_planted_count_slider_3 {
+    animation-iteration-count: 9;
+}
+
+.vision_section_content_container.animate_text .plants_planted_count_slider_4 {
+    animation-iteration-count: 11;
+}
+
+@keyframes text_animation {
+    0% {
+        background-position: left;
+    }
+
+    100% {
+        background-position: right;
+    }
+}
+
+@keyframes plants_counting_animation {
+    100% {
+        /* transform: translateY(-448px); */
+        transform: translateY(calc(-1 * var(--digit-size) * 7));
+    }
+}
+
+@media (prefers-reduced-motion) {
+    .vision_section_content_container.animate_text .vision_text {
+        animation: none;
+    }
+
+    .vision_section_content_container.animate_text .plants_planted_count_slider_1 {
+        animation-iteration-count: 1;
+    }
+    
+    .vision_section_content_container.animate_text .plants_planted_count_slider_2 {
+        animation-iteration-count: 1;
+    }
+    
+    .vision_section_content_container.animate_text .plants_planted_count_slider_3 {
+        animation-iteration-count: 1;
+    }
+    
+    .vision_section_content_container.animate_text .plants_planted_count_slider_4 {
+        animation-iteration-count: 2;
+    }
+}
+
+@media (min-width: 1450px) {
+    .vision_section_content_container {
+        gap: 7rem;
+    }
+
+    .vision_text {
+        font-size: 4rem;
+    }
+}
+
+@media (min-width: 1900px) {
+    .vision_section_content_container {
+        gap: 10rem;
+    }
+
+    .vision_text {
+        font-size: 5rem;
+    }
+
+    .plants_planted_layout_wrapper {
+        gap: 2rem;
+    }
+
+    .plants_planted_text {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 750px) {
+    .vision_section {
+        padding: 0 1em;
+    }
+
+    .vision_section_img_container {
+        height: 100%;
+    }
+
+    .vision_section_content_container {
+        gap: min(12rem, 25vh);
+    }
+
+    .first_vision_text_breakpoint,
+    .second_vision_text_breakpoint {
+        display: none;
+    }
+
+    .plants_planted_animation_layout_wrapper {
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 500px) {
+    .vision_text {
+        font-size: 2.5rem;
+    }
+
+    .plants_planted_layout_wrapper {
+        gap: 1rem;
+    }
+
+    .plants_planted_text {
+        font-size: 2rem;
+    }
+
+    .plants_planted_animation_layout_wrapper {
+        gap: .5rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .vision_text {
+        font-size: 2.2rem;
+    }
+}

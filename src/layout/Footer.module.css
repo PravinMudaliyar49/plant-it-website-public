@@ -1,0 +1,332 @@
+.primary_footer {
+    position: sticky;
+    bottom: -100vh;
+
+    z-index: var(--z-index-100);
+}
+
+.primary_footer_container {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.empty_space_for_vision_appearance {
+    height: 100vh;
+}
+
+.primary_footer_layout_wrapper {
+    position: relative;
+
+    width: 95%;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: rgba(1, 31, 28, .6);
+}
+
+.grass_graphic_container {
+    position: absolute;
+    left: 0;
+    bottom: 99.8%;
+
+    width: 100%;
+}
+
+.grass_graphic_container img {
+    width: 100%;
+    height: 100%;
+}
+
+.footer_content_container {
+    width: var(--max-width);
+
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+}
+
+.footer_content_cta_line_break {
+    display: none;
+}
+
+.footer_content_cta_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.footer_content_cta_container h2 {
+    font-size: 2.8rem;
+    font-family: var(--ff-primary);
+
+    text-transform: capitalize;
+    text-align: center;
+}
+
+.footer_cta_btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+
+    padding: .6em 2.2em;
+    margin-top: .5rem;
+
+    border: 2px solid var(--primary-bright-clr-200);
+    border-radius: 100vh;
+    border-top-right-radius: 0vh;
+
+    box-shadow: 0px 0px 7px 2px var(--primary-bright-clr-200);
+
+    transition: transform 300ms ease-in-out;
+}
+
+@media (hover: hover) {
+    .footer_cta_btn:hover {
+        transform: scale(1.015);
+    }
+}
+
+.whatsapp_icon_container {
+    width: 1rem;
+}
+
+.social_media_list {
+    display: flex;
+    gap: 2rem;
+}
+
+.social_icon_container {
+    position: relative;
+
+    width: 3.5rem;
+    height: 3.5rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: .5em;
+
+    border: 4px solid #262626;
+    box-shadow: 0 0 0 3px var(--primary-bright-clr-300);
+
+    border-radius: 50%;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.social_icon_container::before {
+    content: '';
+
+    position: absolute;
+    top: 120%;
+    left: -50%;
+
+    height: 200%;
+    width: 200%;
+
+    background-image: linear-gradient(to bottom, #027391, #027391, #027391);
+
+    border-radius: 30%;
+    transform: rotate(360deg);
+
+    transition: all 3s ease;
+    animation: wave 30s linear infinite;
+}
+
+.social_icon_container:nth-of-type(1)::before {
+    background-image: linear-gradient(rgb(79, 91, 213),
+            rgb(150, 47, 191),
+            rgb(214, 41, 118),
+            rgb(250, 126, 30),
+            rgb(254, 218, 117));
+}
+
+.social_icon_container:nth-of-type(2)::before {
+    background-image: linear-gradient(to bottom, #0076b5a6, #0077b5, #0077b5);
+}
+
+.social_media_svg_icon {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    fill: white;
+
+    z-index: 2;
+    transition: transform 600ms ease-out;
+}
+
+@media (hover: hover) {
+    .social_icon_container:hover::before {
+        top: 0;
+    }
+
+    .social_icon_container:hover .social_media_svg_icon {
+        fill: var(--primary-bright-clr-200);
+        transform: rotateY(360deg);
+    }
+}
+
+.footer_last_row_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .8rem;
+
+    margin-top: 3rem;
+}
+
+.logo_container {
+    width: 3rem;
+}
+
+.footer_copyright_text {
+    font-family: var(--ff-primary);
+}
+
+.pravin_cta_container {
+    margin-top: -.5rem;
+}
+
+.pravin_cta_text {
+    color: var(--primary-bright-clr-200);
+}
+
+@keyframes wave {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(3600deg);
+    }
+}
+
+@media (min-width: 1450px) {
+    .footer_content_cta_container {
+        gap: 1.2rem;
+    }
+
+    .footer_content_cta_container h2 {
+        font-size: 3rem;
+    }
+
+    .footer_cta_btn {
+        gap: .7rem;
+        padding: .6em 2.3em;
+    }
+
+    .whatsapp_icon_container {
+        width: 1.1rem;
+    }
+
+    .social_media_list {
+        gap: 3rem;
+    }
+
+    .social_icon_container {
+        width: 4rem;
+        height: 4rem;
+        padding: .6em;
+    }
+
+    .footer_last_row_container {
+        margin-top: 4rem;
+    }
+
+    .logo_container {
+        width: 4rem;
+    }
+}
+
+@media (min-width: 1900px) {
+    .footer_content_container {
+        gap: 3.5rem;
+    }
+
+    .footer_content_cta_container {
+        gap: 1.5rem;
+    }
+
+    .footer_content_cta_container h2 {
+        font-size: 4rem;
+    }
+
+    .whatsapp_icon_container {
+        width: 1.2rem;
+    }
+
+    .footer_last_row_container {
+        margin-top: 7.5rem;
+    }
+
+    .logo_container {
+        width: 6rem;
+    }
+}
+
+@media (max-width: 750px) {
+    .footer_content_container {
+        width: 95%;
+    }
+
+    .footer_content_cta_line_break {
+        display: block;
+    }
+
+    .footer_content_cta_container h2 {
+        font-size: 3rem;
+        text-align: center;
+    }
+
+    .social_media_list {
+        gap: 2.5rem;
+    }
+
+    .social_icon_container::before {
+        animation: none;
+    }
+}
+
+@media (max-width: 500px) {
+    .footer_content_container {
+        gap: 2.5rem;
+    }
+
+    .footer_content_cta_container h2 {
+        font-size: 2rem;
+    }
+
+    .footer_cta_btn {
+        padding: .6em 2.3em;
+    }
+
+    .footer_last_row_container {
+        margin-top: 5rem;
+    }
+
+    .logo_container {
+        width: 4.5rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .footer_content_cta_container h2 {
+        font-size: 1.7rem;
+    }
+}

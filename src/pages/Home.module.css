@@ -1,0 +1,6 @@
+.main {
+    position: relative;
+    z-index: var(--z-index-110);
+
+    background-color: var(--primary-dark-clr-700);
+}
